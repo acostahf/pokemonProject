@@ -1,21 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { Appbar, Provider as PaperProvider } from "react-native-paper";
+import { Button, Title, Paragraph } from "react-native-paper";
+import Pokecard from "./Components/Pokecard";
+import theme from "./CustomProperties/Theme";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={theme}>
+      <Appbar>
+        <Appbar.Content title="Pokemon Portfolio" />
+      </Appbar>
+
+      <Pokecard styles={styles.container} />
+    </PaperProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "grey",
+    alignItems: "center",
+    justifyContent: "start",
+    width: "100px",
+    height: "100px",
+  },
+  heading: {
+    justifyContent: "center",
+    fontSize: "28px",
+    color: "blue",
   },
 });
